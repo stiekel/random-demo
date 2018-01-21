@@ -95,3 +95,50 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 {% endpullquote %}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ligula justo, lobortis sit amet semper vel, dignissim sit amet libero. Praesent ac tempus ligula. Maecenas at gravida odio. Etiam tristique volutpat lacus eu faucibus. Donec non tempus arcu. Phasellus adipiscing, mauris nec mollis egestas, ipsum nunc auctor velit, et rhoncus lorem ipsum at ante. Praesent et sem in velit volutpat auctor. Duis vel mauris nulla. Maecenas mattis interdum ante, quis sagittis nibh cursus et. Nulla facilisi. Morbi convallis gravida tortor, ut fermentum enim gravida et. Nunc vel dictum nisl, non ultrices libero. Proin vestibulum felis eget orci consectetur lobortis. Vestibulum augue nulla, iaculis vitae augue vehicula, dignissim ultrices libero. Sed imperdiet urna et quam ultrices tincidunt nec ac magna. Etiam vel pharetra elit.
+
+### Scritps
+
+```
+{% include 'includes/head.swig' %}
+<div class="random-center hide-area">
+  <div id="random-index">
+    <div class="center-field">
+      <img class="avatar" src="{{ config.avatar || theme.avatar }}" width=120 height=120 onClick="openUserCard()">
+    </div>
+    <div class="center-field">
+      <div class="title" onClick="openUserCard()">{{ config.title }}</div>
+      <div class="sub-title" onClick="openUserCard()">{{ config.subtitle }}</div>
+    </div>
+    <hr >
+    <div class="center-field">
+      <ul class="index-nav-link">
+        {% set menu = config.menu || theme.menu %}
+        {% for key in Object.keys(menu)  %}
+          {% if menu[key] != '/'  %}
+            <li><a href="{{ url_for(menu[key]) }}">{{ key }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% include 'includes/social-icon.swig' %}
+    </div>
+  </div>
+</div>
+{% include 'includes/footer.swig' %}
+```
+
+```js
+import CommonConfig from './config/common'
+
+import ElementUI from 'element-ui'
+import VueAxios from 'vue-axios'
+import VueMoment from 'vue-moment'
+
+import axios from './http'
+import store from './store/'
+import ErrorReporter from './errorReporter'
+```
+
+
+
+
+

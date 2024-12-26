@@ -2,6 +2,9 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+      "G": "rm -rf themes/random && git clone https://github.com/stiekel/hexo-theme-random.git --depth=1 themes/random && hexo g",
+  },
   "hexo": {
     "version": "3.3.1"
   },
